@@ -2,7 +2,7 @@
 //      Copyright (c) 2022 Ho Chi Minh city University of Technology
 //                         ALL RIGHTS RESERVED
 // -----------------------------------------------------------------
-// Filename      : data_memory.sv
+// Filename      : lsu.sv
 // Author        : Nhat Minh, Quang Ky, Duc Thuan
 // Created On    : 2022-10-03 14:00
 // Last Modified : 
@@ -865,19 +865,20 @@ module lsu
          
 
     //mux for ld_data_o
+    logic [31:0] ld_data;
     always_comb begin 
         case (addr_sel)
             DATA_MEMORY : begin 
-                ld_data_o = dmem_mux_lddata ;
+                ld_data = dmem_mux_lddata ;
             end
             OUT_PERIPHERALS : begin 
-                ld_data_o = oper_mux_lddata ;
+                ld_data = oper_mux_lddata ;
             end
             IN_PERIPHERALS : begin 
-                ld_data_o = iper_mux_lddata ;
+                ld_data = iper_mux_lddata ;
             end
             RESERVED : begin 
-                ld_data_o = 32'b1 ;
+                ld_data = 32'b1 ;
             end
             default : begin 
             end 
@@ -885,6 +886,48 @@ module lsu
         endcase
         
     end 
+    always_comb begin 
+        case (sel_mod[1:0]) 
+            BYTE : begin
+                if (sel_mod[2] == 1'b1) begin 
+                    //usigned 
+                    ld_data_o = ld_data & 32'h000000FF;
+                end 
+                else begin 
+                    //signed
+                    if (ld_data[7] == 1'b1) begin 
+                        ld_data_o = ld_data & 32'h000000FF | 32'hFFFFFF00;
+                    end
+                    else begin 
+                        ld_data_o = ld_data & 32'h000000FF;
+                    end
+                end
+            end
+            HWORD : begin
+                if (sel_mod[2] == 1'b1) begin 
+                    // unsigned 
+                    ld_data_o = ld_data & 32'h0000FFFF;
+                end 
+                else begin 
+                    //signed
+                    if (ld_data[15] == 1'b1) begin 
+                        ld_data_o = ld_data & 32'h0000FFFF | 32'hFFFF0000;
+                    end
+                    else begin 
+                        ld_data_o = ld_data & 32'h0000FFFF;
+                    end
+                end
+            end
+            WORD : begin 
+                ld_data_o = ld_data;
+            end
+            default : begin 
+                ld_data_o = 32'hCAFECAFE;
+            end
+        endcase
+
+    end
+
     //peripherals output 
     assign io_lcd_o      = output_per_reg[10]  ;
     assign io_ledg_o     = output_per_reg[9]   ;

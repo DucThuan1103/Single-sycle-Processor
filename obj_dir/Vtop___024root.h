@@ -264,6 +264,7 @@ class Vtop___024root final : public VerilatedModule {
         IData/*31:0*/ top__DOT__singleCycle__DOT__PC_block__DOT__pc;
         IData/*31:0*/ top__DOT__singleCycle__DOT__lsu_block__DOT__dmem_mux_lddata;
         IData/*31:0*/ top__DOT__singleCycle__DOT__lsu_block__DOT__oper_mux_lddata;
+        IData/*31:0*/ top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data;
         IData/*31:0*/ top__DOT__singleCycle__DOT__lsu_block__DOT__data_memory_inst__DOT__prdata;
         VlUnpacked<IData/*31:0*/, 4096> top__DOT__singleCycle__DOT__imem_block__DOT__imem;
         VlUnpacked<IData/*31:0*/, 32> top__DOT__singleCycle__DOT__regfile_block__DOT__mem;

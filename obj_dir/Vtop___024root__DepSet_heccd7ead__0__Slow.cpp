@@ -4418,6 +4418,15 @@ VL_ATTR_COLD void Vtop___024root___settle__TOP__0(Vtop___024root* vlSelf) {
                                                   [0xaU]
                                                    : 0xcafecafeU)))
                                           : 0xcafecafeU)))));
+    vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data 
+        = ((2U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
+            ? ((1U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
+                ? 1U : ((0x500U == (0xffffU & vlSelf->top__DOT__singleCycle__DOT__alu_data))
+                         ? ((0x500U == (0xffffU & vlSelf->top__DOT__singleCycle__DOT__alu_data))
+                             ? vlSelf->io_sw_i : 1U)
+                         : 0xcafecafeU)) : ((1U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
+                                             ? vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__oper_mux_lddata
+                                             : vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__dmem_mux_lddata));
 }
 
 VL_ATTR_COLD void Vtop___024root___eval_initial(Vtop___024root* vlSelf) {
@@ -4702,6 +4711,7 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
         vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__output_per_reg[__Vi0] = VL_RAND_RESET_I(32);
     }
     vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__pstrb = VL_RAND_RESET_I(4);
+    vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data = VL_RAND_RESET_I(32);
     for (int __Vi0=0; __Vi0<1024; ++__Vi0) {
         vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__data_memory_inst__DOT__dmem[__Vi0] = VL_RAND_RESET_I(32);
     }

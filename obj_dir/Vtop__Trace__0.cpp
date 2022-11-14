@@ -3324,68 +3324,102 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedFst::Buffe
         bufp->chgIData(oldp+1145,(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__oper_mux_lddata),32);
         bufp->chgBit(oldp+1146,(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__dmux_dmem_st_en));
         bufp->chgBit(oldp+1147,(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__dmux_oper_st_en));
-        bufp->chgSData(oldp+1148,((0xfffU & vlSelf->top__DOT__singleCycle__DOT__alu_data)),12);
-        bufp->chgBit(oldp+1149,((0U != (3U & vlSelf->top__DOT__singleCycle__DOT__alu_data))));
-        bufp->chgIData(oldp+1150,(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__data_memory_inst__DOT__prdata),32);
+        bufp->chgIData(oldp+1148,(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data),32);
+        bufp->chgSData(oldp+1149,((0xfffU & vlSelf->top__DOT__singleCycle__DOT__alu_data)),12);
+        bufp->chgBit(oldp+1150,((0U != (3U & vlSelf->top__DOT__singleCycle__DOT__alu_data))));
+        bufp->chgIData(oldp+1151,(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__data_memory_inst__DOT__prdata),32);
     }
-    bufp->chgIData(oldp+1151,(vlSelf->io_sw_i),32);
-    bufp->chgIData(oldp+1152,(vlSelf->io_lcd_o),32);
-    bufp->chgIData(oldp+1153,(vlSelf->io_ledg_o),32);
-    bufp->chgIData(oldp+1154,(vlSelf->io_ledr_o),32);
-    bufp->chgIData(oldp+1155,(vlSelf->io_hex0_o),32);
-    bufp->chgIData(oldp+1156,(vlSelf->io_hex1_o),32);
-    bufp->chgIData(oldp+1157,(vlSelf->io_hex2_o),32);
-    bufp->chgIData(oldp+1158,(vlSelf->io_hex3_o),32);
-    bufp->chgIData(oldp+1159,(vlSelf->io_hex4_o),32);
-    bufp->chgIData(oldp+1160,(vlSelf->io_hex5_o),32);
-    bufp->chgIData(oldp+1161,(vlSelf->io_hex6_o),32);
-    bufp->chgIData(oldp+1162,(vlSelf->io_hex7_o),32);
-    bufp->chgBit(oldp+1163,(vlSelf->clk_i));
-    bufp->chgBit(oldp+1164,(vlSelf->rst_ni));
-    bufp->chgIData(oldp+1165,(((2U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
-                                ? ((1U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
-                                    ? 1U : ((0x500U 
-                                             == (0xffffU 
-                                                 & vlSelf->top__DOT__singleCycle__DOT__alu_data))
-                                             ? ((0x500U 
-                                                 == 
-                                                 (0xffffU 
-                                                  & vlSelf->top__DOT__singleCycle__DOT__alu_data))
-                                                 ? vlSelf->io_sw_i
-                                                 : 1U)
-                                             : 0xcafecafeU))
-                                : ((1U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
-                                    ? vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__oper_mux_lddata
-                                    : vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__dmem_mux_lddata))),32);
-    bufp->chgIData(oldp+1166,(((2U & (IData)(vlSelf->top__DOT__singleCycle__DOT__ctr_unit_block__DOT__data))
+    bufp->chgIData(oldp+1152,(vlSelf->io_sw_i),32);
+    bufp->chgIData(oldp+1153,(vlSelf->io_lcd_o),32);
+    bufp->chgIData(oldp+1154,(vlSelf->io_ledg_o),32);
+    bufp->chgIData(oldp+1155,(vlSelf->io_ledr_o),32);
+    bufp->chgIData(oldp+1156,(vlSelf->io_hex0_o),32);
+    bufp->chgIData(oldp+1157,(vlSelf->io_hex1_o),32);
+    bufp->chgIData(oldp+1158,(vlSelf->io_hex2_o),32);
+    bufp->chgIData(oldp+1159,(vlSelf->io_hex3_o),32);
+    bufp->chgIData(oldp+1160,(vlSelf->io_hex4_o),32);
+    bufp->chgIData(oldp+1161,(vlSelf->io_hex5_o),32);
+    bufp->chgIData(oldp+1162,(vlSelf->io_hex6_o),32);
+    bufp->chgIData(oldp+1163,(vlSelf->io_hex7_o),32);
+    bufp->chgBit(oldp+1164,(vlSelf->clk_i));
+    bufp->chgBit(oldp+1165,(vlSelf->rst_ni));
+    bufp->chgIData(oldp+1166,(((0U == (3U & (vlSelf->top__DOT__singleCycle__DOT__instr 
+                                             >> 0xcU)))
+                                ? ((0x4000U & vlSelf->top__DOT__singleCycle__DOT__instr)
+                                    ? (0xffU & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)
+                                    : ((0x80U & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)
+                                        ? (0xffffff00U 
+                                           | (0xffU 
+                                              & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data))
+                                        : (0xffU & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)))
+                                : ((1U == (3U & (vlSelf->top__DOT__singleCycle__DOT__instr 
+                                                 >> 0xcU)))
+                                    ? ((0x4000U & vlSelf->top__DOT__singleCycle__DOT__instr)
+                                        ? (0xffffU 
+                                           & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)
+                                        : ((0x8000U 
+                                            & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)
+                                            ? (0xffff0000U 
+                                               | (0xffffU 
+                                                  & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data))
+                                            : (0xffffU 
+                                               & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)))
+                                    : ((2U == (3U & 
+                                               (vlSelf->top__DOT__singleCycle__DOT__instr 
+                                                >> 0xcU)))
+                                        ? vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data
+                                        : 0xcafecafeU)))),32);
+    bufp->chgIData(oldp+1167,(((2U & (IData)(vlSelf->top__DOT__singleCycle__DOT__ctr_unit_block__DOT__data))
                                 ? ((1U & (IData)(vlSelf->top__DOT__singleCycle__DOT__ctr_unit_block__DOT__data))
                                     ? 0U : ((IData)(4U) 
                                             + vlSelf->top__DOT__singleCycle__DOT__PC_block__DOT__pc))
                                 : ((1U & (IData)(vlSelf->top__DOT__singleCycle__DOT__ctr_unit_block__DOT__data))
-                                    ? ((2U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
-                                        ? ((1U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
-                                            ? 1U : 
-                                           ((0x500U 
-                                             == (0xffffU 
-                                                 & vlSelf->top__DOT__singleCycle__DOT__alu_data))
-                                             ? ((0x500U 
-                                                 == 
-                                                 (0xffffU 
-                                                  & vlSelf->top__DOT__singleCycle__DOT__alu_data))
-                                                 ? vlSelf->io_sw_i
-                                                 : 1U)
-                                             : 0xcafecafeU))
-                                        : ((1U & (IData)(vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__addr_sel))
-                                            ? vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__oper_mux_lddata
-                                            : vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__dmem_mux_lddata))
+                                    ? ((0U == (3U & 
+                                               (vlSelf->top__DOT__singleCycle__DOT__instr 
+                                                >> 0xcU)))
+                                        ? ((0x4000U 
+                                            & vlSelf->top__DOT__singleCycle__DOT__instr)
+                                            ? (0xffU 
+                                               & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)
+                                            : ((0x80U 
+                                                & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)
+                                                ? (0xffffff00U 
+                                                   | (0xffU 
+                                                      & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data))
+                                                : (0xffU 
+                                                   & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)))
+                                        : ((1U == (3U 
+                                                   & (vlSelf->top__DOT__singleCycle__DOT__instr 
+                                                      >> 0xcU)))
+                                            ? ((0x4000U 
+                                                & vlSelf->top__DOT__singleCycle__DOT__instr)
+                                                ? (0xffffU 
+                                                   & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)
+                                                : (
+                                                   (0x8000U 
+                                                    & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)
+                                                    ? 
+                                                   (0xffff0000U 
+                                                    | (0xffffU 
+                                                       & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data))
+                                                    : 
+                                                   (0xffffU 
+                                                    & vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data)))
+                                            : ((2U 
+                                                == 
+                                                (3U 
+                                                 & (vlSelf->top__DOT__singleCycle__DOT__instr 
+                                                    >> 0xcU)))
+                                                ? vlSelf->top__DOT__singleCycle__DOT__lsu_block__DOT__ld_data
+                                                : 0xcafecafeU)))
                                     : vlSelf->top__DOT__singleCycle__DOT__alu_data))),32);
-    bufp->chgIData(oldp+1167,(((0x500U == (0xffffU 
+    bufp->chgIData(oldp+1168,(((0x500U == (0xffffU 
                                            & vlSelf->top__DOT__singleCycle__DOT__alu_data))
                                 ? ((0x500U == (0xffffU 
                                                & vlSelf->top__DOT__singleCycle__DOT__alu_data))
                                     ? vlSelf->io_sw_i
                                     : 1U) : 0xcafecafeU)),32);
-    bufp->chgIData(oldp+1168,(((0x500U == (0xffffU 
+    bufp->chgIData(oldp+1169,(((0x500U == (0xffffU 
                                            & vlSelf->top__DOT__singleCycle__DOT__alu_data))
                                 ? vlSelf->io_sw_i : 1U)),32);
 }

@@ -2,6 +2,17 @@
 
 /* verilator lint_off UNUSED */
 module singlecycle
+#(
+
+    parameter                    BYTE          = 2'b00,
+    parameter                    HWORD         = 2'b01,
+    parameter                    WORD          = 2'b10,
+    //parameter for memory mapping 
+    parameter                    DATA_MEMORY     = 2'b00,
+    parameter                    OUT_PERIPHERALS = 2'b01,
+    parameter                    IN_PERIPHERALS  = 2'b10,
+    parameter                    RESERVED        = 2'b11
+)
 //import mypkg::*;        chỉ thêm khi đổ kit
 (
 
@@ -155,7 +166,18 @@ alu alu_block
 );
 /* verilator lint_on PINCONNECTEMPTY */
 // LSU
-lsu lsu_block
+lsu 
+#(
+
+    .BYTE          (BYTE),
+    .HWORD         (HWORD),
+    .WORD          (WORD),
+    //parameter for memory mapping 
+    .DATA_MEMORY (DATA_MEMORY), 
+    .OUT_PERIPHERALS (OUT_PERIPHERALS),
+    .IN_PERIPHERALS  (IN_PERIPHERALS),
+    .RESERVED        (RESERVED)
+) lsu_block
 (
     .clk_i          (clk_i),        
     .rst_ni         (rst_ni),
